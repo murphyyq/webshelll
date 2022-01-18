@@ -1,2 +1,2 @@
 # webshelll
-websheller
+hata sayfaları sheller
